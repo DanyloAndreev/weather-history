@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
-        php-version: '8.0'
+        php-version: '7.4'
     - uses: actions/checkout@v3
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
@@ -26,10 +26,17 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
       run: |
-        mkdir -p database
         touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: mysql
+        DB_DATABASE: weather_history
       run: vendor/bin/phpunit
+    - name: Env
+      env:
+        OW_API_KEY: 145f4d00cbb403d361a0859a19c6927f
+        OW_LAT_DEFAULT: 50.450001
+        OW_LNG_DEFAULT: 30.523333
+        OW_URL_DEFAULT: "https://api.openweathermap.org/data/3.0/onecall?"
+        API_TEMPERATURE_TOKEN: M1unK71cLpINmxTy4X1-EajWqey2bVm7
+        
