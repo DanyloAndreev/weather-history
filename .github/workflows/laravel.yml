@@ -31,12 +31,4 @@ jobs:
       env:
         DB_CONNECTION: mysql
         DB_DATABASE: weather_history
-      run: vendor/bin/phpunit
-    - name: Env
-      env:
-        OW_API_KEY: 145f4d00cbb403d361a0859a19c6927f
-        OW_LAT_DEFAULT: 50.450001
-        OW_LNG_DEFAULT: 30.523333
-        OW_URL_DEFAULT: "https://api.openweathermap.org/data/3.0/onecall?"
-        API_TEMPERATURE_TOKEN: M1unK71cLpINmxTy4X1-EajWqey2bVm7
-        
+      run: vendor/bin/phpunit       
