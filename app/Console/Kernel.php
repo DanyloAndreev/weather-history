@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('hour:get_temperature')
-            ->everyMinute();
+            ->hourly();
     }
 
     /**
