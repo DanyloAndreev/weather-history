@@ -26,11 +26,11 @@ jobs:
     - name: Create Database
       run: |
         mkdir -p database
-        touch database/weather_history.mysql
+        touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: mysql
-        DB_DATABASE: database/weather_history.mysql
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
     - name: Run Migration
       run: |
