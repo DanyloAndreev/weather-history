@@ -1,11 +1,11 @@
-name: Laravel Build and Deploy To Amezmo
+name: Laravel Build
 on:
   push:
     branches: [master]
 jobs:
   build:
-    runs-on: ubuntu-latest # Machine To Run On
-    services: # Service container Mysql
+    runs-on: ubuntu-latest
+    services:
       mysql: # Label used to access the service container
         image: mysql:5.7
         env:
